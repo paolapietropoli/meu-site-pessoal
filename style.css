@@ -605,3 +605,101 @@ body {
   color: var(--rosa-forte);
 }
 
+/* ===================================================
+   SEÇÃO — O QUE EU ESCUTO
+   =================================================== */
+.musicas {
+  position: relative;          /* referência para as flores (::before e ::after) */
+  overflow: hidden;
+  padding: clamp(2rem, 4vw, 5rem) 6.5vw clamp(5rem, 11vw, 14rem);
+  background-color: var(--rosa-fundo);
+}
+
+/* título e lista ficam na frente das flores */
+.musicas > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ----- Título + linha ----- */
+.musicas__titulo {
+  margin-bottom: clamp(1.25rem, 3vw, 3rem);
+  padding-bottom: 1rem;
+  border-bottom: 0.0625rem solid rgba(208, 79, 134, 0.3);
+  font-family: var(--fonte-script);
+  font-size: clamp(3rem, 5.5vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--rosa-forte);
+}
+
+/* ----- Lista de álbuns (flexbox: a última linha fica centralizada) ----- */
+.musicas__lista {
+  --espaco: clamp(0.75rem, 1.7vw, 2rem);   /* espaço entre os álbuns */
+  --arredondado: 50%;          /* 50% = círculo | troque por 1.5rem para quadrado bem arredondado */
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--espaco);
+}
+
+.musicas__lista li {
+  width: calc((100% - 4 * var(--espaco)) / 5);   /* 5 por linha */
+}
+
+/* ----- Moldura creme de cada álbum ----- */
+.album {
+  display: block;
+  padding: 0.5rem;
+  background-color: var(--creme);
+  border: 0.0625rem solid rgba(208, 79, 134, 0.15);
+  border-radius: var(--arredondado);
+  box-shadow: 0 0.3rem 0.6rem rgba(176, 70, 110, 0.18);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.album:hover {
+  transform: translateY(-0.4rem);
+  box-shadow: 0 0.7rem 1.2rem rgba(176, 70, 110, 0.28);
+}
+
+.album:active {
+  transform: translateY(-0.1rem);
+}
+
+.album:focus-visible {
+  outline: 0.2rem solid var(--rosa-forte);
+  outline-offset: 0.25rem;
+}
+
+.album img {
+  display: block;
+  width: 100%;                 /* sobrescreve os width="15%" do HTML */
+  aspect-ratio: 1 / 1;         /* capa quadrada */
+  object-fit: cover;           /* corta o excesso sem amassar a foto */
+  border-radius: var(--arredondado);
+}
+
+.musicas::before,
+.musicas::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  z-index: 0;
+  width: clamp(9rem, 21vw, 26rem);
+  aspect-ratio: 7 / 10;
+  background: url("imagens/flor.svg") no-repeat center bottom / contain;
+  pointer-events: none;
+}
+
+.musicas::before {
+  left: 0;
+  transform: scaleX(-1);       /* espelha a flor da esquerda */
+}
+
+.musicas::after {
+  right: 0;
+}
+
+
