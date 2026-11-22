@@ -1,4 +1,4 @@
-/* ===== Variáveis (troque pelos hex exatos do Figma) ===== */
+
 :root {
   --rosa-fundo: #fbd9df;
   --rosa-forte: #d04f86;
@@ -83,7 +83,6 @@ body {
   border-radius: 0.25rem;
 }
 
-/* ----- Polaroid (esquerda) ----- */
 .hero__polaroid {
   align-self: end;
   height: 100vh;                
@@ -95,7 +94,6 @@ body {
   padding-bottom: 1vh; 
 }
 
-/* ----- Título + botão (direita) ----- */
 .hero__content {
   display: flex;
   flex-direction: column;
@@ -114,7 +112,6 @@ body {
   height: auto;
 }
 
-/* ----- Botão "Me conheça!" ----- */
 .btn {
   display: inline-block;
   padding: 0.5rem 1.8rem;
@@ -142,7 +139,6 @@ body {
   outline-offset: 0.25rem;
 }
 
-/* ----- Flores grandes (canto inferior direito) ----- */
 .hero__flores {
   position: absolute;
   right: 0;
@@ -150,14 +146,11 @@ body {
   z-index: 1;
   width: clamp(12rem, 28vw, 32rem);
   height: auto;
-  pointer-events: none;        /* não atrapalha cliques */
+  pointer-events: none;       
 }
 
-/* ===================================================
-   SEÇÃO 2 — QUEM SOU EU
-   =================================================== */
 .sobre {
-  position: relative;          /* referência para as flores (absolute) */
+  position: relative;        
   overflow: hidden;
   padding: clamp(2rem, 4.5vw, 6rem) 6vw clamp(6rem, 13vw, 16rem);
   background-color: var(--rosa-fundo);
@@ -165,7 +158,7 @@ body {
 
 .sobre__titulo {
   position: relative;
-  z-index: 1;                  /* fica na frente das flores */
+  z-index: 1;                  
   margin-bottom: clamp(1rem, 2vw, 2rem);
   font-family: var(--fonte-script);
   font-size: clamp(3rem, 5.5vw, 5.5rem);
@@ -182,7 +175,7 @@ body {
   gap: clamp(1.5rem, 6vw, 6rem);
 }
 
-/* ----- Cards ----- */
+
 .card {
   position: relative;
   padding: clamp(1.25rem, 2.2vw, 2.25rem) clamp(1.25rem, 2.5vw, 2.5rem);
@@ -205,7 +198,7 @@ body {
   color: var(--rosa-forte);
 }
 
-/* florzinha antes de "Meu perfil" */
+
 .card__titulo--perfil::before {
   content: "";
   flex-shrink: 0;
@@ -229,7 +222,7 @@ body {
   line-height: 1.7;
 }
 
-/* coração no canto do card "Sobre mim" */
+
 .card--sobre::after {
   content: "";
   position: absolute;
@@ -240,7 +233,6 @@ body {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d04f86' stroke-width='1.6' stroke-linejoin='round'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
-/* ----- Flores (atrás dos cards) ----- */
 .sobre__flor {
   position: absolute;
   z-index: 0;
@@ -257,18 +249,16 @@ body {
 .sobre__flor--esq {
   left: 0;
   bottom: 0;
-  transform: scaleX(-1);       /* espelha a flor */
+  transform: scaleX(-1);      
 }
 
 .curiosidades {
-  position: relative;          /* referência para a flor (absolute) */
+  position: relative;          
   overflow: hidden;
-  /* cima | direita | baixo | esquerda */
   padding: clamp(2rem, 4vw, 5rem) 9.5vw clamp(3rem, 8vw, 8rem) 6.5vw;
   background-color: var(--rosa-fundo);
 }
 
-/* ----- Título + subtítulo + linha ----- */
 .curiosidades__topo {
   position: relative;
   z-index: 1;
@@ -292,7 +282,7 @@ body {
   color: var(--texto);
 }
 
-/* ----- Grade de cards (3 colunas x 2 linhas) ----- */
+
 .curiosidades__cards {
   position: relative;
   z-index: 1;
@@ -314,9 +304,9 @@ body {
   box-shadow: 0 0.3rem 0.6rem rgba(176, 70, 110, 0.18);
 }
 
-/* bolinha rosa com o ícone dentro */
+
 .curio__icone {
-  flex-shrink: 0;              /* a bolinha não amassa quando o texto é grande */
+  flex-shrink: 0;              
   display: grid;
   place-items: center;
   width: 3.7rem;
@@ -345,7 +335,7 @@ body {
   color: var(--texto);
 }
 
-/* ----- Flor do canto superior direito (por cima dos cards) ----- */
+
 .curiosidades__flor {
   position: absolute;
   top: 0;
@@ -353,32 +343,27 @@ body {
   z-index: 2;
   width: clamp(9rem, 20vw, 26rem);
   height: auto;
-  transform: rotate(180deg);   /* gira a flor de cabeça para baixo */
+  transform: rotate(180deg);  
   pointer-events: none;
 }
 
-/* ===================================================
-   SEÇÃO 4 — LUGARES (já visitei + quero visitar)
-   =================================================== */
+
 .lugares {
-  position: relative;          /* referência para as flores (absolute) */
+  position: relative;          
   overflow: hidden;
   padding: clamp(2rem, 4vw, 5rem) 6.5vw clamp(5rem, 11vw, 14rem);
   background-color: var(--rosa-fundo);
 }
 
-/* cada grupo (título + cards) fica na frente das flores */
 .lugares__grupo {
   position: relative;
   z-index: 1;
 }
 
-/* espaço entre o 1º e o 2º grupo */
 .lugares__grupo + .lugares__grupo {
   margin-top: clamp(2.5rem, 6vw, 6rem);
 }
 
-/* ----- Título + subtítulo + linha ----- */
 .lugares__topo {
   margin-bottom: clamp(1.25rem, 3vw, 3rem);
   padding-bottom: 1rem;
@@ -400,9 +385,8 @@ body {
   color: var(--texto);
 }
 
-/* ----- Lista de lugares (flexbox: a última linha fica centralizada) ----- */
 .lugares__lista {
-  --espaco: clamp(0.75rem, 1.7vw, 2rem);   /* espaço entre os cards */
+  --espaco: clamp(0.75rem, 1.7vw, 2rem);  
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -411,10 +395,9 @@ body {
 }
 
 .lugares__lista li {
-  width: calc((100% - 4 * var(--espaco)) / 5);   /* 5 por linha */
+  width: calc((100% - 4 * var(--espaco)) / 5);  
 }
 
-/* ----- Card de cada lugar ----- */
 .lugar {
   display: block;
   padding: 0.6rem 0.6rem 0.9rem;
@@ -444,8 +427,8 @@ body {
 .lugar__foto {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;         /* todas as fotos com o mesmo tamanho */
-  object-fit: cover;           /* corta o excesso sem amassar a foto */
+  aspect-ratio: 4 / 5;         
+  object-fit: cover;          
   border-radius: 0.9rem;
 }
 
@@ -457,7 +440,6 @@ body {
   color: var(--rosa-forte);
 }
 
-/* ----- Flores (atrás dos cards) ----- */
 .lugares__flor {
   position: absolute;
   z-index: 0;
@@ -474,32 +456,28 @@ body {
 .lugares__flor--esq {
   left: 0;
   bottom: 0;
-  transform: scaleX(-1);       /* espelha a flor */
+  transform: scaleX(-1);       
 }
 
 .lugares__flor--meio {
   left: 0;
   top: 38%;
   width: clamp(6rem, 14vw, 18rem);
-  transform: scaleX(-1);       /* só aparece nas laterais, atrás dos cards */
+  transform: scaleX(-1);       
 }
 
 .lugares__flor--topo {
   top: 0;
   right: 14vw;
   width: clamp(8rem, 16vw, 20rem);
-  transform: translateY(-80%) rotate(180deg);  /* só a pontinha aparece no topo */
+  transform: translateY(-80%) rotate(180deg);  
 }
 
-/* ===================================================
-   SEÇÃO 5 — REDES SOCIAIS
-   =================================================== */
 .redes {
   padding: clamp(2rem, 4vw, 5rem) 6.5vw clamp(3rem, 6vw, 6rem);
   background-color: var(--rosa-fundo);
 }
 
-/* ----- Título + linha ----- */
 .redes__titulo {
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
@@ -511,12 +489,12 @@ body {
   color: var(--rosa-forte);
 }
 
-/* ----- Cards das redes (2 colunas) ----- */
+
 .redes__cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(0.75rem, 1.7vw, 2rem);
-  padding-inline: clamp(0rem, 3vw, 3rem);   /* cards um pouco mais estreitos que a citação */
+  padding-inline: clamp(0rem, 3vw, 3rem);   
   margin-bottom: 1.5rem;
 }
 
@@ -547,7 +525,6 @@ body {
   outline-offset: 0.25rem;
 }
 
-/* a própria imagem vira a bolinha rosa (o padding deixa o ícone menor dentro dela) */
 .rede img {
   flex-shrink: 0;
   width: 3.4rem;
@@ -567,10 +544,9 @@ body {
   font-size: 1.2rem;
   font-weight: 500;
   color: var(--texto);
-  overflow-wrap: anywhere;     /* nomes compridos não estouram o card */
+  overflow-wrap: anywhere;    
 }
 
-/* ----- Citação ----- */
 .citacao {
   padding: 2rem 1.5rem 1.75rem;
   text-align: center;
@@ -580,7 +556,6 @@ body {
   color: var(--texto);
 }
 
-/* aspas grandes em cima do texto (pseudo-elemento) */
 .citacao::before {
   content: "\201C";
   display: block;
@@ -605,23 +580,19 @@ body {
   color: var(--rosa-forte);
 }
 
-/* ===================================================
-   SEÇÃO — O QUE EU ESCUTO
-   =================================================== */
+
 .musicas {
-  position: relative;          /* referência para as flores (::before e ::after) */
+  position: relative;         
   overflow: hidden;
   padding: clamp(2rem, 4vw, 5rem) 6.5vw clamp(5rem, 11vw, 14rem);
   background-color: var(--rosa-fundo);
 }
 
-/* título e lista ficam na frente das flores */
 .musicas > * {
   position: relative;
   z-index: 1;
 }
 
-/* ----- Título + linha ----- */
 .musicas__titulo {
   margin-bottom: clamp(1.25rem, 3vw, 3rem);
   padding-bottom: 1rem;
@@ -633,10 +604,10 @@ body {
   color: var(--rosa-forte);
 }
 
-/* ----- Lista de álbuns (flexbox: a última linha fica centralizada) ----- */
+
 .musicas__lista {
-  --espaco: clamp(0.75rem, 1.7vw, 2rem);   /* espaço entre os álbuns */
-  --arredondado: 50%;          /* 50% = círculo | troque por 1.5rem para quadrado bem arredondado */
+  --espaco: clamp(0.75rem, 1.7vw, 2rem);   
+  --arredondado: 50%;          
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -645,10 +616,10 @@ body {
 }
 
 .musicas__lista li {
-  width: calc((100% - 4 * var(--espaco)) / 5);   /* 5 por linha */
+  width: calc((100% - 4 * var(--espaco)) / 5);   
 }
 
-/* ----- Moldura creme de cada álbum ----- */
+
 .album {
   display: block;
   padding: 0.5rem;
@@ -675,9 +646,9 @@ body {
 
 .album img {
   display: block;
-  width: 100%;                 /* sobrescreve os width="15%" do HTML */
-  aspect-ratio: 1 / 1;         /* capa quadrada */
-  object-fit: cover;           /* corta o excesso sem amassar a foto */
+  width: 100%;                 
+  aspect-ratio: 1 / 1;         
+  object-fit: cover;          
   border-radius: var(--arredondado);
 }
 
@@ -744,5 +715,3 @@ body {
   margin-top: 0.5rem;
   font-size: 0.9rem;
 }
-
-
