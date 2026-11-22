@@ -491,77 +491,117 @@ body {
   transform: translateY(-80%) rotate(180deg);  /* só a pontinha aparece no topo */
 }
 
-
-/* ===== Seção 2: tablet e celular ===== */
-@media (max-width: 900px) {
-  .sobre {
-    padding-bottom: 30vw;
-  }
-
-  .sobre__titulo {
-    text-align: center;
-  }
-
-  .sobre__cards {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .sobre__flor {
-    width: 34vw;
-  }
+/* ===================================================
+   SEÇÃO 5 — REDES SOCIAIS
+   =================================================== */
+.redes {
+  padding: clamp(2rem, 4vw, 5rem) 6.5vw clamp(3rem, 6vw, 6rem);
+  background-color: var(--rosa-fundo);
 }
 
-/* ===== Respeita quem prefere menos movimento ===== */
-@media (prefers-reduced-motion: reduce) {
-  .btn {
-    transition: none;
-  }
+/* ----- Título + linha ----- */
+.redes__titulo {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 0.0625rem solid rgba(208, 79, 134, 0.3);
+  font-family: var(--fonte-script);
+  font-size: clamp(3rem, 5.5vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--rosa-forte);
 }
 
-/* ===== Tablet e celular: uma coluna ===== */
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    padding: 7rem 1rem 4rem;
-    text-align: center;
-  }
-
-  .hero__content {
-    order: -1;                 /* título aparece antes da polaroid */
-    align-items: center;
-    padding-bottom: 0;
-  }
-
-  .hero__titulo {
-    width: min(100%, 30rem);
-  }
-
-  .hero__polaroid {
-    align-self: auto;
-    height: auto;
-    width: min(100%, 26rem);
-    margin: 2rem 0 0;
-  }
-
-  .hero__flores {
-    width: 38vw;
-  }
+/* ----- Cards das redes (2 colunas) ----- */
+.redes__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(0.75rem, 1.7vw, 2rem);
+  padding-inline: clamp(0rem, 3vw, 3rem);   /* cards um pouco mais estreitos que a citação */
+  margin-bottom: 1.5rem;
 }
 
-/* ===== Celular pequeno ===== */
-@media (max-width: 480px) {
-  .nav__lista {
-    gap: 0.4rem 1rem;
-    padding: 0.5rem 1.2rem;
-  }
-
-  .nav__link {
-    font-size: 0.8rem;
-  }
-
-  .nav__link::before {
-    display: none;             /* some com os ícones para caber o menu */
-  }
+.rede {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  background-color: var(--creme);
+  border: 0.0625rem solid rgba(208, 79, 134, 0.15);
+  border-radius: 1.25rem;
+  box-shadow: 0 0.3rem 0.6rem rgba(176, 70, 110, 0.18);
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
+
+.rede:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 0.7rem 1.2rem rgba(176, 70, 110, 0.28);
+}
+
+.rede:active {
+  transform: translateY(-0.05rem);
+}
+
+.rede:focus-visible {
+  outline: 0.2rem solid var(--rosa-forte);
+  outline-offset: 0.25rem;
+}
+
+/* a própria imagem vira a bolinha rosa (o padding deixa o ícone menor dentro dela) */
+.rede img {
+  flex-shrink: 0;
+  width: 3.4rem;
+  height: 3.4rem;
+  padding: 0.9rem;
+  border-radius: 50%;
+  background-color: #ffd5e2;
+}
+
+.rede h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--rosa-forte);
+}
+
+.rede p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--texto);
+  overflow-wrap: anywhere;     /* nomes compridos não estouram o card */
+}
+
+/* ----- Citação ----- */
+.citacao {
+  padding: 2rem 1.5rem 1.75rem;
+  text-align: center;
+  background-color: rgba(208, 79, 134, 0.08);
+  border: 0.0625rem solid rgba(208, 79, 134, 0.25);
+  border-radius: 1.25rem;
+  color: var(--texto);
+}
+
+/* aspas grandes em cima do texto (pseudo-elemento) */
+.citacao::before {
+  content: "\201C";
+  display: block;
+  margin-bottom: 0.75rem;
+  font-family: Georgia, serif;
+  font-size: 3.5rem;
+  line-height: 0.8;
+  color: var(--rosa-forte);
+}
+
+.citacao p {
+  font-size: clamp(1rem, 1.5vw, 1.35rem);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.citacao cite {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  font-style: normal;
+  color: var(--rosa-forte);
+}
+
