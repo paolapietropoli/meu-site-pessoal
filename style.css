@@ -5,6 +5,9 @@
   --rosa-forte-escuro: #b63b71;
   --branco: #fff;
   --fonte: "Poppins", sans-serif;
+  --fonte-script: "Great Vibes", cursive;
+  --creme: #f4eae6;                       
+  --texto: #6d3a4d; 
 }
 
 *,
@@ -148,6 +151,135 @@ body {
   width: clamp(12rem, 28vw, 32rem);
   height: auto;
   pointer-events: none;        /* não atrapalha cliques */
+}
+
+/* ===================================================
+   SEÇÃO 2 — QUEM SOU EU
+   =================================================== */
+.sobre {
+  position: relative;          /* referência para as flores (absolute) */
+  overflow: hidden;
+  padding: clamp(2rem, 4.5vw, 6rem) 6vw clamp(6rem, 13vw, 16rem);
+  background-color: var(--rosa-fundo);
+}
+
+.sobre__titulo {
+  position: relative;
+  z-index: 1;                  /* fica na frente das flores */
+  margin-bottom: clamp(1rem, 2vw, 2rem);
+  font-family: var(--fonte-script);
+  font-size: clamp(3rem, 5.5vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--rosa-forte);
+}
+
+.sobre__cards {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 6vw, 6rem);
+}
+
+/* ----- Cards ----- */
+.card {
+  position: relative;
+  padding: clamp(1.25rem, 2.2vw, 2.25rem) clamp(1.25rem, 2.5vw, 2.5rem);
+  background-color: var(--creme);
+  border: 0.0625rem solid rgba(208, 79, 134, 0.18);
+  border-radius: 1rem;
+  box-shadow: 0 0.35rem 1rem rgba(176, 70, 110, 0.18);
+  color: var(--texto);
+}
+
+.card__titulo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  font-family: var(--fonte-script);
+  font-size: clamp(2.2rem, 3.6vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--rosa-forte);
+}
+
+/* florzinha antes de "Meu perfil" */
+.card__titulo--perfil::before {
+  content: "";
+  flex-shrink: 0;
+  width: 0.55em;
+  height: 0.55em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='%23d04f86'%3E%3Ccircle cx='12' cy='6.5' r='3.6'/%3E%3Ccircle cx='17.2' cy='10.3' r='3.6'/%3E%3Ccircle cx='15.2' cy='16.5' r='3.6'/%3E%3Ccircle cx='8.8' cy='16.5' r='3.6'/%3E%3Ccircle cx='6.8' cy='10.3' r='3.6'/%3E%3C/g%3E%3Ccircle cx='12' cy='12' r='1.8' fill='%23f4eae6'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.perfil__lista {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 1.4vw, 1.4rem);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.card--sobre p {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+/* coração no canto do card "Sobre mim" */
+.card--sobre::after {
+  content: "";
+  position: absolute;
+  right: 1.25rem;
+  bottom: 1rem;
+  width: 1.9rem;
+  height: 1.9rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d04f86' stroke-width='1.6' stroke-linejoin='round'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* ----- Flores (atrás dos cards) ----- */
+.sobre__flor {
+  position: absolute;
+  z-index: 0;
+  width: clamp(9rem, 21vw, 26rem);
+  height: auto;
+  pointer-events: none;
+}
+
+.sobre__flor--dir {
+  right: 0;
+  bottom: 0;
+}
+
+.sobre__flor--esq {
+  left: 0;
+  bottom: 0;
+  transform: scaleX(-1);       /* espelha a flor */
+}
+
+
+
+/* ===== Seção 2: tablet e celular ===== */
+@media (max-width: 900px) {
+  .sobre {
+    padding-bottom: 30vw;
+  }
+
+  .sobre__titulo {
+    text-align: center;
+  }
+
+  .sobre__cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .sobre__flor {
+    width: 34vw;
+  }
 }
 
 /* ===== Respeita quem prefere menos movimento ===== */
